@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Right-Angled Triangle Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 30px;
+    }
+    .container {
+      background: white;
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Hypotenuse Calculator</h2>
+    <label for="sideA">Enter Side A:</label>
+    <input type="number" id="sideA" placeholder="e.g. 3" required>
+
+    <label for="sideB">Enter Side B:</label>
+    <input type="number" id="sideB" placeholder="e.g. 4" required>
+
+    <button onclick="calculateHypotenuse()">Calculate Hypotenuse</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateHypotenuse() {
+      const a = parseFloat(document.getElementById('sideA').value);
+      const b = parseFloat(document.getElementById('sideB').value);
+
+      if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0) {
+        document.getElementById('result').innerText = 'Please enter valid positive numbers.';
+        return;
+      }
+
+      const hypotenuse = Math.sqrt(a * a + b * b).toFixed(2);
+      document.getElementById('result').innerText = `The hypotenuse is: ${hypotenuse}`;
+    }
+  </script>
+
+</body>
+</html>
